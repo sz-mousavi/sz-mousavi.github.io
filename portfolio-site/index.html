@@ -3,13 +3,821 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Seyedeh Zahra Mousavi — molecular geneticist and senior bioinformatician in Munich. Multi-omics analysis for cancer, male infertility, and extracellular vesicles.">
+  <meta name="author" content="Seyedeh Zahra Mousavi">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Seyedeh Zahra Mousavi — Bioinformatics">
+  <meta property="og:description" content="Molecular geneticist and senior bioinformatician at Technical University of Munich. Multi-omics analysis for cancer, male infertility, and extracellular vesicles.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sz-mousavi.github.io/portfolio-site/">
+  <meta property="og:locale" content="en_US">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Seyedeh Zahra Mousavi — Bioinformatics">
+  <meta name="twitter:description" content="Molecular geneticist and senior bioinformatician at Technical University of Munich. Multi-omics analysis for cancer, male infertility, and extracellular vesicles.">
   <title>Seyedeh Zahra Mousavi — Bioinformatics</title>
-  <meta name="description" content="Seyedeh Zahra Mousavi — molecular geneticist and senior bioinformatician in Munich.">
   <link rel="canonical" href="https://sz-mousavi.github.io/portfolio-site/">
-  <meta http-equiv="refresh" content="0; url=portfolio-site/">
-  <script>window.location.replace("portfolio-site/");</script>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='70'%3ESZ%3C/text%3E%3C/svg%3E">
+  <style>
+    :root {
+      --bg: #f4f0ea;
+      --bg-elev: #fbf8f3;
+      --ink: #1a1916;
+      --ink-soft: #4d4943;
+      --line: #d9d2c6;
+      --accent: #1e4a52;
+      --accent-hover: #14353b;
+      --accent-soft: #e6eef0;
+      --max: 72rem;
+      --read: 40rem;
+      --header-h: 4.25rem;
+      --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Times New Roman", Times, serif;
+      --sans: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+      --shadow: 0 4px 16px rgba(26, 25, 22, 0.06);
+      --shadow-hover: 0 8px 28px rgba(26, 25, 22, 0.1);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #161513;
+        --bg-elev: #1e1c19;
+        --ink: #f3eee6;
+        --ink-soft: #b7b0a6;
+        --line: #3a362f;
+        --accent: #8eb8bf;
+        --accent-hover: #c5dce0;
+        --accent-soft: #24383c;
+        --shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+        --shadow-hover: 0 10px 32px rgba(0, 0, 0, 0.45);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 1.05rem;
+      line-height: 1.65;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: var(--accent); text-underline-offset: 0.18em; }
+    a:hover { color: var(--accent-hover); }
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .skip {
+      position: absolute;
+      left: 0.75rem;
+      top: -3rem;
+      background: var(--ink);
+      color: var(--bg);
+      padding: 0.5rem 0.75rem;
+      z-index: 100;
+    }
+    .skip:focus { top: 0.75rem; }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 2rem));
+      margin-inline: auto;
+    }
+
+    header.site {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      height: var(--header-h);
+      background: color-mix(in srgb, var(--bg) 92%, transparent);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+    .header-inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .logo {
+      font-family: var(--serif);
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+      font-size: 1.08rem;
+    }
+    .logo:hover { color: var(--accent); }
+    nav.primary { display: none; align-items: center; gap: 1.35rem; }
+    nav.primary a {
+      color: var(--ink-soft);
+      text-decoration: none;
+      font-size: 0.92rem;
+      transition: color 0.15s ease;
+      position: relative;
+    }
+    nav.primary a:hover { color: var(--ink); }
+    nav.primary a:focus-visible,
+    nav.primary a.active { color: var(--ink); font-weight: 600; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.58rem 1.05rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font: inherit;
+      font-size: 0.92rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+    .btn-solid {
+      background: var(--accent);
+      color: #f7f4ef;
+    }
+    .btn-solid:hover { background: var(--accent-hover); color: #fff; transform: translateY(-1px); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--ink);
+      border-color: var(--line);
+    }
+    .btn-ghost:hover { border-color: var(--ink); color: var(--ink); }
+    .menu-toggle {
+      display: inline-flex;
+      background: none;
+      border: 1px solid var(--line);
+      color: var(--ink);
+      border-radius: 0.4rem;
+      padding: 0.35rem 0.55rem;
+      font: inherit;
+      font-size: 0.85rem;
+    }
+
+    .mobile-nav {
+      display: none;
+      border-bottom: 1px solid var(--line);
+      background: var(--bg-elev);
+      padding: 0.75rem 1rem 1rem;
+    }
+    .mobile-nav.open { display: grid; gap: 0.65rem; }
+    .mobile-nav a { color: var(--ink); text-decoration: none; padding: 0.35rem 0; }
+
+    @media (min-width: 820px) {
+      nav.primary { display: flex; }
+      .menu-toggle { display: none; }
+    }
+
+    .hero {
+      padding: 2.6rem 0 3.2rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .hero .wrap {
+      display: grid;
+      gap: 1.75rem;
+      align-items: center;
+    }
+    .hero-portrait {
+      margin: 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #d9d2c6;
+      aspect-ratio: 1 / 1;
+      width: min(18rem, 100%);
+      border-radius: 0.6rem;
+      box-shadow: 0 6px 20px rgba(26, 25, 22, 0.12);
+    }
+    .hero-portrait img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 12%;
+    }
+    @media (min-width: 860px) {
+      .hero .wrap {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-portrait {
+        width: 100%;
+        justify-self: end;
+      }
+    }
+    .kicker {
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin: 0 0 0.85rem;
+    }
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.15rem, 6vw, 3.7rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      font-weight: 600;
+      margin: 0 0 0.35rem;
+    }
+    .role {
+      font-family: var(--serif);
+      font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+      color: var(--ink-soft);
+      margin: 0 0 1.25rem;
+      font-weight: 500;
+    }
+    .lede {
+      max-width: 38rem;
+      font-size: 1.12rem;
+      color: var(--ink);
+      margin: 0 0 1.6rem;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.65rem; }
+
+    section { padding: 3.4rem 0; border-bottom: 1px solid var(--line); }
+    section.hero { padding: 2.6rem 0 3.2rem; }
+    section h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.65rem, 3vw, 2.05rem);
+      letter-spacing: -0.02em;
+      margin: 0 0 1.35rem;
+      padding-bottom: 0.45rem;
+      border-bottom: 2px solid var(--accent);
+      display: inline-block;
+    }
+    .narrow { max-width: var(--read); }
+    p { margin: 0 0 1rem; }
+    p:last-child { margin-bottom: 0; }
+
+    .skill-grid {
+      display: grid;
+      gap: 0.95rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 640px) {
+      .skill-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .skill {
+      background: var(--bg-elev);
+      border: 1px solid var(--line);
+      padding: 1.2rem 1.3rem;
+      border-radius: 0.45rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .skill:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+    .skill dt {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-bottom: 0.3rem;
+    }
+    .skill dd { margin: 0; color: var(--ink); }
+
+    .roles {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 2rem;
+      display: grid;
+      gap: 1rem;
+    }
+    .roles li {
+      display: grid;
+      gap: 0.15rem 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .roles li:last-child { border-bottom: 0; padding-bottom: 0; }
+    .roles h3 {
+      font-family: var(--serif);
+      font-size: 1.22rem;
+      margin: 0;
+      letter-spacing: -0.02em;
+    }
+    .roles .org { color: var(--ink-soft); margin: 0; }
+    .roles .when {
+      color: var(--ink-soft);
+      font-size: 0.92rem;
+      margin: 0;
+    }
+    @media (min-width: 700px) {
+      .roles li {
+        grid-template-columns: 1fr auto;
+        align-items: baseline;
+      }
+      .roles .org { grid-column: 1; }
+      .roles .when { grid-column: 2; grid-row: 1; }
+    }
+    .roles .note {
+      grid-column: 1 / -1;
+      margin: 0.1rem 0 0;
+      color: var(--ink-soft);
+      font-size: 0.92rem;
+    }
+    .roles .points {
+      grid-column: 1 / -1;
+      margin: 0.45rem 0 0;
+      padding-left: 1.15rem;
+      color: var(--ink-soft);
+    }
+    .roles .points li {
+      display: list-item;
+      border: 0;
+      padding: 0;
+      margin: 0.2rem 0;
+    }
+
+    .projects { display: grid; gap: 1.15rem; }
+    article.card {
+      background: var(--bg-elev);
+      border: 1px solid var(--line);
+      padding: 1.45rem 1.4rem 1.4rem;
+      border-left: 3px solid var(--accent);
+      border-radius: 0.45rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    article.card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+    }
+    article.card h3 {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      margin: 0 0 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .card p { color: var(--ink); }
+    .label {
+      display: inline-block;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-top: 0.4rem;
+    }
+    .links { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.75rem; font-size: 0.95rem; }
+
+    .impact-list,
+    .pub-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 1rem;
+    }
+    .impact-list li,
+    .pub-list li {
+      text-align: justify;
+      padding-left: 1.15rem;
+      position: relative;
+    }
+    .impact-list li::before,
+    .pub-list li::before {
+      content: "";
+      width: 0.45rem;
+      height: 0.45rem;
+      background: var(--accent);
+      position: absolute;
+      left: 0;
+      top: 0.55rem;
+      border-radius: 50%;
+    }
+    .pub-list li {
+      text-align: justify;
+      line-height: 1.58;
+    }
+    .pub-list .doi {
+      display: inline-block;
+      margin-top: 0.25rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .conf-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.7rem;
+    }
+    .conf-list li {
+      text-align: justify;
+      padding-left: 1.15rem;
+      position: relative;
+      text-align: justify;
+      hyphens: auto;
+      line-height: 1.52;
+    }
+    .conf-list li::before {
+      content: "";
+      width: 0.45rem;
+      height: 0.45rem;
+      background: var(--accent);
+      position: absolute;
+      left: 0;
+      top: 0.5rem;
+      border-radius: 50%;
+    }
+
+    .contact-panel {
+      background: var(--bg-elev);
+      border: 1px solid var(--line);
+      padding: 1.5rem 1.35rem;
+      border-radius: 0.5rem;
+      box-shadow: var(--shadow);
+    }
+    .contact-panel h2 { margin-bottom: 0.65rem; }
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.05rem 0 1.3rem;
+    }
+    .contact-list li { margin: 0.4rem 0; }
+    .contact-list span {
+      display: inline-block;
+      min-width: 5.5rem;
+      color: var(--ink-soft);
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    footer.site {
+      padding: 1.6rem 0 2.3rem;
+      color: var(--ink-soft);
+      font-size: 0.88rem;
+    }
+    footer.site .wrap {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .icon {
+      width: 1em;
+      height: 1em;
+      fill: currentColor;
+      vertical-align: -0.15em;
+    }
+  </style>
 </head>
 <body>
-  <p>Redirecting to the <a href="portfolio-site/">portfolio of Seyedeh Zahra Mousavi</a>.</p>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site">
+    <div class="wrap header-inner">
+      <a class="logo" href="#top">Seyedeh Zahra Mousavi</a>
+      <nav class="primary" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#awards">Awards</a>
+        <a href="#conferences">Conferences</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn-solid" href="mailto:seyedehzahra.mousavi@tum.de">Get in touch</a>
+      </nav>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" id="menu-toggle">Menu</button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" hidden>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#publications">Publications</a>
+      <a href="#awards">Awards</a>
+      <a href="#conferences">Conferences</a>
+      <a href="#contact">Contact</a>
+      <a href="mailto:seyedehzahra.mousavi@tum.de">Get in touch</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap">
+        <div>
+          <p class="kicker">Technical University of Munich · Munich, Germany</p>
+          <h1>Seyedeh Zahra Mousavi</h1>
+          <p class="role">Molecular geneticist and senior bioinformatician</p>
+          <p class="lede">I turn multi-omics data into decisions: study design, reproducible analysis, and reporting that wet-lab and clinical teams can use.</p>
+          <div class="hero-actions">
+            <a class="btn btn-solid" href="mailto:seyedehzahra.mousavi@tum.de">Email me</a>
+            <a class="btn btn-ghost" href="https://github.com/sz-mousavi" rel="noopener noreferrer">
+              <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+              GitHub
+            </a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/Seyedeh-Zahra-Mousavi" rel="noopener noreferrer">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap narrow" style="text-align: justify;">
+        <h2>About</h2>
+        <p>Molecular geneticist and senior bioinformatician specializing in infertility genomics, multi-omics integration, and biomarker discovery.</p>
+        <p>As a postdoctoral researcher at the Technical University of Munich, I lead the bioinformatics component of Ph.D. projects in head-and-neck squamous cell carcinoma (HNSCC). I have extensive experience in family-based genotype–phenotype correlation analysis for male infertility and previously headed the Bioinformatics department at TuCAGene, translating multi-omics data into clinically relevant findings.</p>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap">
+        <h2>Skills</h2>
+        <dl class="skill-grid">
+          <div class="skill">
+            <dt>Genomics</dt>
+            <dd>WES (GATK4 best practices, ANNOVAR annotation); CNV with GATK gCNV, ExomeDepth, cn.MOPS, CoNVaDING, HMZDelFinder</dd>
+          </div>
+          <div class="skill">
+            <dt>Transcriptomics</dt>
+            <dd>Microarray (limma); bulk RNA-seq (limma, DESeq2, edgeR); circRNA (CIRI2, TopHat-Fusion); scRNA-seq (Seurat, Harmony, Monocle3)</dd>
+          </div>
+          <div class="skill">
+            <dt>Systems biology</dt>
+            <dd>Co-expression network analysis (WGCNA); network visualization and analysis (Cytoscape); cell–cell communication (CellChat, NeuronChat, NicheNet)</dd>
+          </div>
+          <div class="skill">
+            <dt>Structural bioinformatics</dt>
+            <dd>Protein structure modeling (MODELLER, web-based servers); molecular dynamics simulation (GROMACS); molecular docking (AutoDock, ClusPro, HADDOCK, etc.)</dd>
+          </div>
+          <div class="skill">
+            <dt>Molecular design &amp; analysis</dt>
+            <dd>Primer, siRNA, ASO, and shRNA design; multi-epitope peptide vaccine design; phylogenetic analysis (MEGA); non-coding RNA analysis.</dd>
+          </div>
+          <div class="skill">
+            <dt>Computing</dt>
+            <dd>Linux (Ubuntu), Bash, R, Python, Git</dd>
+          </div>
+          <div class="skill">
+            <dt>Machine Learning</dt>
+            <dd>Supervised &amp; unsupervised learning, Regression, Classification, Clustering</dd>
+          </div>
+          <div class="skill">
+            <dt>Wet lab</dt>
+            <dd>Cell culture, RFLP, RT-PCR, qPCR; DNA, RNA, plasmid, and exosome isolation</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="wrap">
+        <h2>Research &amp; professional experience</h2>
+        <ul class="roles">
+          <li>
+            <h3>Postdoctoral Researcher</h3>
+            <p class="org">Department of Otolaryngology, Technical University of Munich, Germany</p>
+            <p class="when">Feb 2026 – Present</p>
+            <p class="note">Preceded by a Ph.D. research visit at the same department (Jul 2025 – Jan 2026).</p>
+          </li>
+          <li>
+            <h3>Head of Bioinformatics Department</h3>
+            <p class="org">TuCAGene Company, Tehran, Iran</p>
+            <p class="when">Aug 2023 – Jun 2025</p>
+            <ul class="points">
+              <li>Led multi-omics projects in male-infertility genomics, from study design to analysis, interpretation, and reporting.</li>
+              <li>Performed whole-exome sequencing analysis of patient and family data with GATK4 best-practice pipelines and ANNOVAR annotation.</li>
+              <li>Trained and mentored junior bioinformatics staff; worked with clinical and wet-lab teams.</li>
+            </ul>
+          </li>
+          <li>
+            <h3>Teaching Associate</h3>
+            <p class="org">Royan Institute, Tehran, Iran</p>
+            <p class="when">2021 – 2024</p>
+            <ul class="points">
+              <li>Mentored M.Sc. and Ph.D. students in WES analysis and variant prioritization and interpretation.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="wrap">
+        <h2>Education</h2>
+        <ul class="roles">
+          <li>
+            <h3>Ph.D., Molecular Genetics</h3>
+            <p class="org">Tarbiat Modares University, Tehran, Iran</p>
+            <p class="when">Sep 2019 – Feb 2026</p>
+            <p class="note">Thesis: A study of genotype–phenotype correlation in Iranian infertile men by family-based exome sequencing.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="wrap">
+        <h2>Selected projects</h2>
+        <div class="projects">
+          <article class="card">
+            <h3>Familial Whole Exome Sequencing projects for male infertility</h3>
+            <p>Identified pathogenic variants in USP26, L3MBTL2, and CATSPERB genes related to asthenoteratozoospermia, azoospermia, and unexplained male infertility through family-based exome sequencing and genotype–phenotype correlation analysis.</p>
+            <p><span class="label">Role</span><br>Study design, experimental and in silico data analysis and validation, and manuscript writing.</p>
+            <div class="links">
+              <a href="https://doi.org/10.1016/j.gene.2025.149945" rel="noopener noreferrer">Gene, 2026</a>
+              <a href="https://doi.org/10.34172/bi.31216" rel="noopener noreferrer">BioImpacts, 2026</a>
+              <a href="https://github.com/sz-mousavi/USP26-familial-WES-asthenoteratozoospermi" rel="noopener noreferrer">USP26 repo</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Multi-omics projects in cancer</h3>
+            <p>Led or participated in multi-omics projects in cancer, especially in pancreatic, HNSCC, and glioblastoma.</p>
+            <p><span class="label">Role</span><br>Study design, analysis, multi-omics integration, visualization, and manuscript writing and editing.</p>
+            <div class="links">
+              <a href="https://doi.org/10.18502/ijph.v53i7.16060" rel="noopener noreferrer">Iran J Public Health, 2024</a>
+              <a href="https://doi.org/10.34172/bi.30187" rel="noopener noreferrer">BioImpacts, 2024</a>
+              <a href="https://doi.org/10.1177/11769351261460625" rel="noopener noreferrer">Cancer Informatics, 2026</a>
+              <a href="https://doi.org/10.1016/j.cancergen.2025.11.010" rel="noopener noreferrer">Cancer Genetics, 2025</a>
+              <a href="https://github.com/sz-mousavi/GFAP-glioma-heterogeneity" rel="noopener noreferrer">GFAP glioma repo</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Extracellular vesicle projects</h3>
+            <p>Analysis of extracellular-vesicle and liquid-biopsy datasets in cancer research, including plasma EV subpopulation profiling across isolation strategies.</p>
+          </article>
+
+          <article class="card">
+            <h3>Transcriptomics and regulatory network analysis projects</h3>
+            <p>Integrated expression analyses of kinases, epigenetic factors, and USP-family genes in male infertility and osteoporosis, with regulatory-network analysis.</p>
+            <div class="links">
+              <a href="https://doi.org/10.36922/JCTR025370062" rel="noopener noreferrer">JCTR, 2026</a>
+              <a href="https://doi.org/10.18502/jri.v26i4.21088" rel="noopener noreferrer">JRI, 2025</a>
+              <a href="https://doi.org/10.22099/mbrc.2025.52777.2123" rel="noopener noreferrer">MBRC, 2025</a>
+              <a href="https://github.com/sz-mousavi/teratozoospermia-kinases" rel="noopener noreferrer">Teratozoospermia kinases repo</a>
+              <a href="https://github.com/sz-mousavi/NOA-apoptosis" rel="noopener noreferrer">NOA apoptosis repo</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="wrap narrow">
+        <h2>Publications</h2>
+        <ul class="pub-list">
+          <li>
+            Mousavi SZ, Kouhi P, Esmaeili V, Rokhsattalab Z, Esmaeilzadeh A, Almadani N, Mohammad Soltani B*, Totonchi M*. Identifying a CATSPERB variant in unexplained male infertility through familial exome sequencing. <em>BioImpacts</em>. 2026;16:31216.
+            <br><a class="doi" href="https://doi.org/10.34172/bi.31216" rel="noopener noreferrer">10.34172/bi.31216</a>
+          </li>
+          <li>
+            Mousavi SZ, Askari M, McElreavey K, Bashamboo A, Salehi N, Rastari M, Rokhsattalab Z, Mohammad Soltani B*, Totonchi M*. A novel candidate missense variant in the catalytic domain of USP26 associated with astheno-teratozoospermia. <em>Gene</em>. 2026;982:149945.
+            <br><a class="doi" href="https://doi.org/10.1016/j.gene.2025.149945" rel="noopener noreferrer">10.1016/j.gene.2025.149945</a>
+          </li>
+          <li>
+            Mousavi SZ, Mohammad Soltani B, Hadizadeh M, Rokhsattalab Z, Totonchi M*. In silico exploring of the epigenetic factors in teratozoospermia: A Focus on IGF2BP2. <em>Mol Biol Res Commun</em>. 2025;14(4):271.
+            <br><a class="doi" href="https://doi.org/10.22099/mbrc.2025.52777.2123" rel="noopener noreferrer">10.22099/mbrc.2025.52777.2123</a>
+          </li>
+          <li>
+            Mousavi SZ, Hadizadeh M, Mohammad Soltani B*, Totonchi M*. Dysregulated kinase expression in teratozoospermia and implications for male infertility: an integrated gene expression study. <em>J Reprod Infertil</em>. 2025;26(4):224.
+            <br><a class="doi" href="https://doi.org/10.18502/jri.v26i4.21088" rel="noopener noreferrer">10.18502/jri.v26i4.21088</a>
+          </li>
+          <li>
+            Askari N, Hadizadeh M, Sina M, Parvizpour S*, Mousavi SZ*, Shamsir MS. Investigating the function and targeting of MET protein as an oncogene kinase in pancreatic ductal adenocarcinoma: a microarray data integration. <em>BioImpacts</em>. 2024;15:30187.
+            <br><a class="doi" href="https://doi.org/10.34172/bi.30187" rel="noopener noreferrer">10.34172/bi.30187</a>
+          </li>
+          <li>
+            Askari N, Shad Pirouz M, Mafikandi V, Hadizadeh M*, Mousavi SZ*. The lncRNA UCA1 enhances pancreatic cancer EMT by regulating miR-708-5p and miR-135b-5p: a bioinformatics approach. <em>Iran J Public Health</em>. 2024;53(7):1659–1669.
+            <br><a class="doi" href="https://doi.org/10.18502/ijph.v53i7.16060" rel="noopener noreferrer">10.18502/ijph.v53i7.16060</a>
+          </li>
+          <li>
+            Sina M*, Majidzadeh-A K, Zarinfam S, Ferraro RM, Mazzoldi EL, Mousavi SZ, Giliani SC. First Middle East and North Africa report of an EPCAM–MSH2 deletion in two Iranian Lynch syndrome families: a case report. <em>Cancer Genet</em>. 2025;298–299:315–320.
+            <br><a class="doi" href="https://doi.org/10.1016/j.cancergen.2025.11.010" rel="noopener noreferrer">10.1016/j.cancergen.2025.11.010</a>
+          </li>
+          <li>
+            Hadizadeh M, Mousavi SZ, Ghasemi S*. GFAP-dependent transcriptional dynamics and cellular heterogeneity in primary, recurrent, and grade III gliomas. <em>Cancer Inform</em>. 2026;25:11769351261460625.
+            <br><a class="doi" href="https://doi.org/10.1177/11769351261460625" rel="noopener noreferrer">10.1177/11769351261460625</a>
+          </li>
+          <li>
+            Buchholz JY, Shoykhet M, Darius AC, Weiser T, Roberts EL, Khosravi M, Petry J, Mousavi SZ, Mohammadian B, Adams L, Hachani K, Eberhagen C, Azimzadeh O, Zischka H, Multhoff G, Bashiri Dezfouli A*, Wollenberg B. A defined isothiocyanate mixture suppresses platelet signaling and metabolism to limit thrombosis in vivo. <em>Front Immunol</em>. 2026;17:1944710.
+            <br><a class="doi" href="https://doi.org/10.3389/fimmu.2026.1944710" rel="noopener noreferrer">10.3389/fimmu.2026.1944710</a>
+          </li>
+          <li>
+            Mousavi SZ, Payab N, Sina M, Tootoonchi E, Ghorbanpour A, Dehghan M, Pourahmad Jaktaji R, Hadizadeh M*. Unveiling the role of ubiquitin-specific protease family in osteoporosis: a focus on USP17L2 and USP19. <em>J Clin Transl Res</em>. 2026;12(3):025370062.
+            <br><a class="doi" href="https://doi.org/10.36922/JCTR025370062" rel="noopener noreferrer">10.36922/JCTR025370062</a>
+          </li>
+          <li>
+            Dehghan M, Pourahmad Jaktaji R*, Mousavi SZ. Mutational study in the exon 2 of osteoprotegerin gene in osteoporotic women in Chaharmahal and Bakhtiari Province of Iran. <em>Zahedan J Res Med Sci</em>. 2023;25(1).
+            <br><a class="doi" href="https://doi.org/10.5812/zjrms-116972" rel="noopener noreferrer">10.5812/zjrms-116972</a>
+          </li>
+          <li>
+            Mousavi SZ, Dehghan M, Pourahmad R*. Investigation of the presence of G354A (Cys87Tyr) mutation in osteoprotegerin gene in women with osteoporosis in Chaharmahal and Bakhtiari province. <em>J Shahrekord Univ Med Sci</em>. 2019;21(6):250–253.
+            <br><a class="doi" href="https://doi.org/10.34172/jsums.2019.43" rel="noopener noreferrer">10.34172/jsums.2019.43</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="awards">
+      <div class="wrap narrow">
+        <h2>Awards and honors</h2>
+        <ul class="impact-list">
+          <li>Best doctoral thesis award, 11th Yazd International Congress and Student Award in Reproductive Medicine, Iran, 2025.</li>
+          <li>Ranked 4th in the national Ph.D. entrance examination in Genetics, Iran, 2019.</li>
+          <li>Selected as an exceptionally talented student in the M.Sc. program, Iran, 2016.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="conferences">
+      <div class="wrap narrow">
+        <h2>Selected international conferences</h2>
+        <ul class="conf-list">
+          <li>In Silico Identification of Master miRNA Regulators of CREM and ZPBP Genes in Human Spermatogenesis. 26th Royan International Congress on Reproductive Biomedicine, Tehran, Iran. Sep 2025.</li>
+          <li>Exploring the Genes Located on Chromosome Y in Non-obstructive Azoospermia: A Bioinformatic Approach. 4th International Conference on Bioinformatics of Iran, Zanjan, Iran. Feb 2025.</li>
+          <li>Investigating the Role of EMT genes in Multiple Myeloma: A Bioinformatic Approach. 4th International Conference on Bioinformatics of Iran, Zanjan, Iran. Feb 2025.</li>
+          <li>In Silico Analysis of the R410W Mutation in ZP1: Effects on Protein Stability and Interactions. 4th International Conference on Bioinformatics of Iran, Zanjan, Iran. Feb 2025.</li>
+          <li>Human Disease Phenotype Associated with Mutations in ZP1. 13th International Conference on Obstetrics, Infertility and Mental Health, Tbilisi, Georgia. Dec 2024.</li>
+          <li>Exploring the Role of the USP Superfamily in Teratozoospermia: A Comprehensive Meta-Analysis. 13th International Conference on Obstetrics, Infertility and Mental Health, Tbilisi, Georgia. Dec 2024.</li>
+          <li>Detection of germline copy number variations in Inborn Errors of Immunity using Ion AmpliSeq™ custom panel in genetic diagnostic clinic. The European Human Genetics Conference, Berlin, Germany. June 2024.</li>
+          <li>Family-based whole exome sequencing in male infertility: unlocking the potential of genetic analysis. 25th Royan International Congress on Reproductive Biomedicine, Tehran, Iran. Aug 2024.</li>
+          <li>Investigation of c.-51-1G>C genetic variation in the PAX6 gene in men with sporadic unexplained male infertility. 25th Royan International Congress on Reproductive Biomedicine, Tehran, Iran. Aug 2024.</li>
+          <li>Whole Exome Sequencing of a Family with Non-obstructive Azoospermia Men did not Show the C677T Variant as an Infertility Risk Factor. 3rd International and 12th National Iranian Conference on Bioinformatics, Tehran, Iran. Feb 2024.</li>
+          <li>Exploring the Association of Chr10-69785434C>CA Variant in the HERC4 Gene Discovered by WES in NOA. 5th International and 17th Iranian Genetic Congress, Shahid Beheshti University, Tehran, Iran. March 2023.</li>
+          <li>The hereditary aspects of gastric cancer. 3rd International Gastrointestinal Cancer Congress, Shahid Beheshti University, Tehran, Iran. Nov 2016.</li>
+          <li>The Role of APC Gene in Colorectal Cancer. 3rd International Gastrointestinal Cancer Congress, Shahid Beheshti University, Tehran, Iran. Nov 2016.</li>
+          <li>Study of conservation of BRCA1 protein, a negative regulator of mammary epithelial cell growth in five mammalian species. 11th International Breast Cancer Congress, Shahid Beheshti University, Tehran, Iran. Feb 2016.</li>
+          <li>Common genes involved in breast cancer. 11th International Breast Cancer Congress, Shahid Beheshti University, Tehran, Iran. Feb 2016.</li>
+          <li>Stem Cell Therapy in Cardiovascular Abnormalities in Osteogenesis Imperfecta. International Congress on Stem Cells & Regenerative Medicine, Ferdowsi University of Mashhad, Mashhad, Iran. May 2015.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact-panel">
+          <h2>Contact</h2>
+          <p>I can take a cohort from raw reads to a defensible report. Get in touch for collaborations or opportunities.</p>
+          <ul class="contact-list">
+            <li><span>Email</span> <a href="mailto:seyedehzahra.mousavi@tum.de">seyedehzahra.mousavi@tum.de</a></li>
+            <li><span>Location</span> Munich, Germany</li>
+            <li><span>ORCID</span> <a href="https://orcid.org/0000-0001-8298-2770" rel="noopener noreferrer">0000-0001-8298-2770</a></li>
+            <li><span>GitHub</span> <a href="https://github.com/sz-mousavi" rel="noopener noreferrer">sz-mousavi</a></li>
+            <li><span>LinkedIn</span> <a href="https://www.linkedin.com/in/Seyedeh-Zahra-Mousavi" rel="noopener noreferrer">Seyedeh-Zahra-Mousavi</a></li>
+          </ul>
+          <div class="hero-actions">
+            <a class="btn btn-solid" href="mailto:seyedehzahra.mousavi@tum.de">Write an email</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      <span>© <span id="year">2026</span> Seyedeh Zahra Mousavi</span>
+      <span>Single-page portfolio · no trackers</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var yearEl = document.getElementById("year");
+      if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+      var toggle = document.getElementById("menu-toggle");
+      var panel = document.getElementById("mobile-nav");
+      if (!toggle || !panel) return;
+
+      function setOpen(open) {
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        panel.hidden = !open;
+        panel.classList.toggle("open", open);
+        toggle.textContent = open ? "Close" : "Menu";
+      }
+
+      toggle.addEventListener("click", function () {
+        setOpen(panel.hidden);
+      });
+
+      panel.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () { setOpen(false); });
+      });
+    })();
+  </script>
 </body>
 </html>
